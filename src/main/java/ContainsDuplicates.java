@@ -1,4 +1,5 @@
-
+import java.util.HashSet;
+import java.util.Set;
 
 public class ContainsDuplicates {
     /**
@@ -8,6 +9,16 @@ public class ContainsDuplicates {
      * @return true if nums contains any duplicate values, false if it does not.
      */
     public boolean containsDuplicate(int[] nums){
-        return false;
+        Set<Integer> hashSet = new HashSet<>();
+
+        for(int i=0; i<nums.length; i++){
+            if(!hashSet.contains(nums[i])){
+                hashSet.add(nums[i]);
+            }
+            else{
+                return false;
+            }
+        }
+        return true;
     }
 }
